@@ -1,0 +1,24 @@
+include(FindPackageHandleStandardArgs)
+
+find_path(
+  UWEBSOCKETS_INCLUDE_DIR
+  NAMES "uWS/uWS.h"
+  HINTS
+  ${UWEBSOCKETS_ROOT_DIR}
+  PATH_SUFFIXES
+  include)
+
+find_library(
+  UWEBSOCKETS_LIBRARIES
+  NAMES uWS
+  HINTS
+  ${UWEBSOCKETS_ROOT_DIR}
+  PATH_SUFFIXES
+  lib)
+
+find_package_handle_standard_args(
+  uWebSockets
+  DEFAULT_MSG
+  UWEBSOCKETS_LIBRARIES UWEBSOCKETS_INCLUDE_DIR)
+
+mark_as_advanced(UWEBSOCKETS_INCLUDE_DIR UWEBSOCKETS_LIBRARIES)
